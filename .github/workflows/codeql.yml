@@ -64,6 +64,7 @@ jobs:
         cd level-zero-tests
         mkdir build
         cd build
+        pwd
         cmake ..
         cd /home/runner/work/level-zero-tests/level-zero-tests
 
