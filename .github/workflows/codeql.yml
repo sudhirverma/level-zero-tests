@@ -54,8 +54,15 @@ jobs:
 
     - name: update package
       run: |
-         sudo apt-get update && sudo apt-get install -y --no-install-recommends \
-            level-zero level-zero-devel libpng-dev libboost-all-dev
+         sudo apt-get update && sudo apt-get install -y libpng-dev libboost-all-dev
+         
+    - name: Install level-zero
+      run: |
+        pwd
+        cd /tmp
+        git clone https://github.com/oneapi-src/level-zero-tests
+        cd level-zero-tests
+        cmake -D CMAKE_INSTALL_PREFIX=$PWD/../out ..
 
     # Autobuild attempts to build any compiled languages  (C/C++, C#, Go, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
