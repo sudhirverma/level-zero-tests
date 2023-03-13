@@ -65,7 +65,7 @@ jobs:
         mkdir build
         cd build
         cmake ..
-        cmake --build . --config Release --target install
+        sudo cmake --build . --config Release --target install
         cd /home/runner/work/level-zero-tests/level-zero-tests
 
     # Autobuild attempts to build any compiled languages  (C/C++, C#, Go, or Java).
