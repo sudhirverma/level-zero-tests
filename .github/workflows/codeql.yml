@@ -62,7 +62,11 @@ jobs:
         cd /tmp
         git clone https://github.com/oneapi-src/level-zero-tests
         cd level-zero-tests
-        cmake -D CMAKE_INSTALL_PREFIX=$PWD/../out ..
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build . --config Release --target install
+        cd /home/runner/work/level-zero-tests/level-zero-tests
 
     # Autobuild attempts to build any compiled languages  (C/C++, C#, Go, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
@@ -70,7 +74,7 @@ jobs:
       run: |
         mkdir build
         cd build
-        cmake ..
+        cmake -D CMAKE_INSTALL_PREFIX=$PWD/../out ..
 
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
