@@ -65,7 +65,7 @@ jobs:
         cd level-zero-tests
         mkdir build
         cd build
-        cmake -D CMAKE_INSTALL_PREFIX=$PWD/../out ..
+        cmake ..
         sudo cmake --build . --config Release --target install
         cd /home/runner/work/level-zero-tests/level-zero-tests
 
