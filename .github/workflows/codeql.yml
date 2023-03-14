@@ -54,18 +54,19 @@ jobs:
 
     - name: update package
       run: |
-         sudo apt-get update && sudo apt-get install -y libpng-dev && sudo apt-get install -y libboost-all-dev && sudo apt-get install -y cmake
+         sudo apt update
+         sudo apt install -y libpng-dev 
+         sudo apt install -y libboost-all-dev 
          
     - name: Install level-zero
       run: |
-        pwd
         cd /tmp
-        git clone https://github.com/oneapi-src/level-zero-tests
+        git clone https://github.com/sudhirverma/level-zero-tests
         cd level-zero-tests
         mkdir build
         cd build
-        pwd
-        cmake ..
+        cmake -D CMAKE_INSTALL_PREFIX=$PWD/../out ..
+        sudo cmake --build . --config Release --target install
         cd /home/runner/work/level-zero-tests/level-zero-tests
 
     # Autobuild attempts to build any compiled languages  (C/C++, C#, Go, or Java).
