@@ -62,12 +62,12 @@ jobs:
     - name: Install level-zero
       run: |
         cd /tmp
-        git clone https://github.com/sudhirverma/level-zero-tests
+        git clone https://github.com/oneapi-src/level-zero
         cd level-zero-tests
         mkdir build
         cd build
         cmake ..
-        sudo cmake --build . --config Release --target install
+        cmake --build . --config Release
         cd /home/runner/work/level-zero-tests/level-zero-tests
 
     # Autobuild attempts to build any compiled languages  (C/C++, C#, Go, or Java).
